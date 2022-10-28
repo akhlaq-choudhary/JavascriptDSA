@@ -1,3 +1,4 @@
+// array data structure
 class array {
   constructor() {
     this.length = 0;
