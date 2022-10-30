@@ -82,17 +82,17 @@ class SinglyLinkList {
   }
   reverse() {
     if (!this.head.next) return this;
-    let first = this.head;
+    let beforeInterator = this.head;
     this.tail = this.head;
     let iterator = this.head.next;
     while (iterator) {
       const temp = iterator.next;
-      iterator.next = first;
-      first = iterator;
+      iterator.next = beforeInterator;
+      beforeInterator = iterator;
       iterator = temp;
     }
     this.head.next = null;
-    this.head = first;
+    this.head = beforeInterator;
   }
 }
 const myLinkList = new SinglyLinkList(1);
