@@ -84,12 +84,12 @@ class SinglyLinkList {
     if (!this.head.next) return this;
     let first = this.head;
     this.tail = this.head;
-    let second = this.head.next;
-    while (second) {
-      const temp = second.next;
-      second.next = first;
-      first = second;
-      second = temp;
+    let iterator = this.head.next;
+    while (iterator) {
+      const temp = iterator.next;
+      iterator.next = first;
+      first = iterator;
+      iterator = temp;
     }
     this.head.next = null;
     this.head = first;
