@@ -85,12 +85,12 @@ class SinglyLinkList {
     let prevnode = this.head;
     this.tail = this.head;
     let currNode = this.head.next;
-    let temp;
+    let nextNode;
     while (currNode) {
-      temp = currNode.next;
+      nextNode = currNode.next;
       currNode.next = prevnode;
       prevnode = currNode;
-      currNode = temp;
+      currNode = nextNode;
     }
     this.head.next = null;
     this.head = prevnode;
