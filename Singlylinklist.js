@@ -82,27 +82,28 @@ class SinglyLinkList {
   }
   reverse() {
     if (!this.head.next) return this;
-    let beforeInterator = this.head;
+    let prevnode = this.head;
     this.tail = this.head;
-    let iterator = this.head.next;
-    while (iterator) {
-      const temp = iterator.next;
-      iterator.next = beforeInterator;
-      beforeInterator = iterator;
-      iterator = temp;
+    let currNode = this.head.next;
+    let temp;
+    while (currNode) {
+      temp = currNode.next;
+      currNode.next = prevnode;
+      prevnode = currNode;
+      currNode = temp;
     }
     this.head.next = null;
-    this.head = beforeInterator;
+    this.head = prevnode;
   }
 }
 const myLinkList = new SinglyLinkList(1);
 myLinkList.append(2);
 myLinkList.append(3);
-myLinkList.prepend(0);
-myLinkList.insert(3, 4);
-myLinkList.append(5);
-myLinkList.append(6);
-myLinkList.remove(0);
+// myLinkList.prepend(0);
+myLinkList.insert(2, 4);
+// myLinkList.append(5);
+// myLinkList.append(6);
+// myLinkList.remove(0);
 myLinkList.reverse();
 console.log(myLinkList.printList());
 console.log(myLinkList);
